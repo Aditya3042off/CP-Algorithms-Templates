@@ -21,7 +21,7 @@ const ll mod = 1e9 + 7,inf = 1e18;
 int N = 2e5;
 vb sieve(N+1);
 
-void computeSieve(int n) {
+void computeSieve(int n = N) {
 	fr(0,n+1) sieve[i] = true;
 
 	for(int i=2;i*i <=n;i++){
