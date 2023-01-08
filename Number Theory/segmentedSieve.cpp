@@ -36,13 +36,13 @@ vi getPrimes(int n) {
 	return primes;
 }
 
-vb segmentedSieve(int l,int r){
+vb segmentedSieve(ll l,ll r){
 	vb dummy(r-l+1,true);
 	vi primes = getPrimes(sqrt(r));
 
 	for(auto pr : primes) {
-		int start = max(pr*pr,(int) ceil(l/(pr*1.0))*pr);
-		for(int j = start;j<=r;j+=pr)
+		ll start = max(pr*pr*1LL,(ll) ceil(l/(pr*1.0))*pr*1LL);
+		for(ll j = start;j<=r;j+=pr)
 			dummy[j-l] = false;
 	}
 
