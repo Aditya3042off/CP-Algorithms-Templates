@@ -15,7 +15,9 @@ using vs = vector<string>;
 const ll mod = 1e9 + 7,inf = 1e18;
 
 #define pb push_back
-#define fr(a,b) for(int i=0;i<b;i++)
+#define fr(k,a,b) for(ll k=a;k<b;k++)
+#define rfr(k,a,b) for(ll k=a;k>=b;k--)
+#define raf(k,container) for(auto &k : container)
 
 
 // Time complexity -> O(sqrt(N))
@@ -38,10 +40,10 @@ map<int,int> primeFactorsWithPowers(int n) {
 // Suitable when queries are given
 
 int N = 2e5;
-vi spf(N+1);
+vi spf(N+10);
 
-void createSPF(int n) {
-	fr(2,n+1) spf[i] = i;
+void createSPF(int n = N) {
+	fr(i,1,n+1) spf[i] = i;
 
 	for(int i=2;i*i<=n;i++){
 		if(spf[i] == i) {
