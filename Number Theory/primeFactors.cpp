@@ -21,7 +21,7 @@ const ll mod = 1e9 + 7,inf = 1e18;
 
 
 // Time complexity -> O(sqrt(N))
-// Not suitable when queries are given
+// Only use this for the prime factorisation of a single number. Not suitable when queries are given
 map<int,int> primeFactorsWithPowers(int n) {
 	map<int,int> pf;
 
@@ -36,15 +36,18 @@ map<int,int> primeFactorsWithPowers(int n) {
 	return pf;
 }
 
+
 // Time Complexity -> O(N log(logN) + Q*logN)
 // Suitable when queries are given
-
-int N = 2e5;
-vi spf(N+10);
+const int N = 2e5;
+int spf[N+1]; // this array stores the smallest prime factor of every number
 
 void createSPF(int n = N) {
-	fr(i,1,n+1) spf[i] = i;
+	for(int i=1;i<=n;i++) {
+		spf[i] = i;
+	}
 
+	// time complexity of this loop is O(n * log(log n))
 	for(int i=2;i*i<=n;i++){
 		if(spf[i] == i) {
 			for(int j=i*i;j<=n;j+=i){
@@ -54,8 +57,19 @@ void createSPF(int n = N) {
 		}
 	}
 }
+createSPF(N);
 
+map<int,int> primeFactorsWithPowers(int n) {
+	map<int,int> pf;
 
+	// time complexity of this loop is O(log n)
+	while(n != 1) {
+		pf[spf[n]]++;
+		n = n / spf[n];
+	}
+
+	return pf;
+}
 
 
 
