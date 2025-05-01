@@ -15,15 +15,29 @@ const ll mod = 1e9 + 7,inf = 1e18;
 #define pb push_back
 #define fr(a,b) for(int i=a;i<b;i++)
 
-
+// Model-1
 bool isPrime(int n) {
 	if(n == 1) return false;
 
-	for(int i=2;i*i<=n;i++){
-		if(n%i == 0) 
-			return false;
+	int cnt = 0; // stores no of factors
+	
+	for(int i=1;i*i<=n;i++){
+		if(n%i != 0) continue;
+		cnt++;
+		if(i != n/i) cnt++;
 	}
-	return true;
+	
+	if(cnt==2) return true;
+	else return false;
 }
 
-
+// Model-2
+bool isPrime(int n) {
+	if(n == 1) return false;
+	
+	for(int i=2;i*i<=n;i++){
+		if(n%i == 0) return false;
+	}
+	
+	return false;
+}
