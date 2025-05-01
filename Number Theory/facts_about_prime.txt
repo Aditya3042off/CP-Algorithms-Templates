@@ -1,0 +1,9 @@
+1. Two is the only even prime
+
+2. every prime can be written in the form of 6*b + 1 or 6*n - 1 except 2 and 3.
+
+3. every even integer greater than 2 can be expressed as sum of 2 primes.
+
+4. (p-1)! ≅ (p-1) mod p
+
+5. 2 and 3 are the only 2 consecutive numbers that are primes
