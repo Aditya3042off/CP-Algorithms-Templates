@@ -119,6 +119,23 @@ namespace combop
 }
 using namespace combop;
 
+// Common mathematical utility functions
+namespace mathop
+{
+    ll gcd(ll a, ll b) { return b ? gcd(b, a % b) : a; }
+    ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b; }
+    bool isPrime(ll n)
+    {
+        if (n <= 1)
+            return false;
+        for (ll i = 2; i * i <= n; i++)
+            if (n % i == 0)
+                return false;
+        return true;
+    }
+}
+using namespace mathop;
+
 #define fast                      \
     ios_base::sync_with_stdio(0); \
     cin.tie(0);                   \
@@ -151,4 +168,5 @@ int main()
     {
         solve();
     }
+
 }
